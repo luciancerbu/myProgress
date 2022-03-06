@@ -32,6 +32,7 @@
 		5EEAB4F827D4E2C70079CBE8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEAB4F727D4E2C70079CBE8 /* StorageManager.swift */; };
 		5EEAB4FA27D4E2D30079CBE8 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEAB4F927D4E2D30079CBE8 /* AnalyticsManager.swift */; };
 		5EEAB4FC27D4E2E90079CBE8 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEAB4FB27D4E2E90079CBE8 /* HapticsManager.swift */; };
+		5EEAB4FE27D501780079CBE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EEAB4FD27D501780079CBE8 /* GoogleService-Info.plist */; };
 		F8826338FDAAAF7478C16863 /* Pods_myProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7DE0E448B61E5EDED010B3 /* Pods_myProgress.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		5EEAB4F727D4E2C70079CBE8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5EEAB4F927D4E2D30079CBE8 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		5EEAB4FB27D4E2E90079CBE8 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		5EEAB4FD27D501780079CBE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA7DE0E448B61E5EDED010B3 /* Pods_myProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -171,9 +173,10 @@
 		5EEAB4D227D41E300079CBE8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5EEAB4C127D41CE20079CBE8 /* Assets.xcassets */,
 				5EEAB4B827D41CDD0079CBE8 /* AppDelegate.swift */,
 				5EEAB4BA27D41CDD0079CBE8 /* SceneDelegate.swift */,
+				5EEAB4C127D41CE20079CBE8 /* Assets.xcassets */,
+				5EEAB4FD27D501780079CBE8 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				5EEAB4C527D41CE20079CBE8 /* LaunchScreen.storyboard in Resources */,
 				5EEAB4C227D41CE20079CBE8 /* Assets.xcassets in Resources */,
+				5EEAB4FE27D501780079CBE8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
