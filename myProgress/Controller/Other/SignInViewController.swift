@@ -129,9 +129,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @objc func didTapCreateAccount() {
         let vc = SignUpViewController()
-//        vc.completion = {
-//
-//        }
+        vc.completion = { [weak self] in
+            DispatchQueue.main.async {
+                let tabVc = TabBarViewController()
+                tabVc.modalPresentationStyle = .fullScreen
+                self?.present(tabVc, animated: true)
+            }
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
     
