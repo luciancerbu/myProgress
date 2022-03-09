@@ -10,14 +10,16 @@ import UIKit
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     private var collectionView: UICollectionView?
+    
+    private var viewModels = [[HomeFeedCellType]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "home page"
         view.backgroundColor = .systemBackground
 
         configureCollectionView()
+        fetchPosts()
     }
     
     override func viewDidLayoutSubviews() {
@@ -26,6 +28,82 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView!.frame = view.bounds
     }
     
+    func fetchPosts() {
+        let postData: [HomeFeedCellType] = [
+            .posterCell(
+                viewModel: PosterCollectionViewCellViewModel(
+                    username: "user one",
+                    profilePictureURL: URL(string: "https://www.apple.com")!
+                )
+            ),
+            .post(
+                viewModel: PostCollectionViewCellViewModel(postUrl:  URL(string: "https://www.apple.com")!)
+            ),
+            .actions(
+                viewModel: PostActionsCollectionViewCellViewModel(isLiked: true)
+            ),
+            .likeCount(
+                viewModel: PostLikesCollectionViewCellViewModel(likers: ["user two"])
+            ),
+            .caption(
+                viewModel: PostCaptionCollectionViewCellViewModel(
+                    username: "user three",
+                    caption: "awesome first post"
+                )
+            ),
+            .timestamp(
+                viewModel: PostDatetimeCollectionViewCellViewModel(date: Date())
+            )
+        ]
+        
+        viewModels.append(postData)
+        collectionView?.reloadData()
+    }
+    
+    // MARK: - Collection View
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return viewModels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModels[section].count
+    }
+    
+    let colors: [UIColor] = [
+        .red,
+        .green,
+        .blue,
+        .yellow,
+        .systemPink,
+        .orange
+    ]
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellType = viewModels[indexPath.section][indexPath.row]
+        switch cellType {
+        case .posterCell(let viewModel):
+            break
+        case .post(let viewModel):
+            break
+        case .actions(let viewModel):
+            break
+        case .likeCount(let viewModel):
+            break
+        case .caption(let viewModel):
+            break
+        case .timestamp(let viewModel):
+            break
+        }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.contentView.backgroundColor = colors[indexPath.row]
+        
+        return cell
+    }
+}
+
+extension HomeViewController {
     func configureCollectionView() {
         let sectionHeight: CGFloat = 240 + view.width
         let collectionView = UICollectionView(
@@ -99,31 +177,4 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         self.collectionView = collectionView
     }
-
-    // MARK: - Collection View
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
-    }
-    
-    let colors: [UIColor] = [
-        .red,
-        .green,
-        .blue,
-        .yellow,
-        .systemPink,
-        .orange
-    ]
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.contentView.backgroundColor = colors[indexPath.row]
-        
-        return cell
-    }
 }
-
